@@ -7,7 +7,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 RUN set -ex \
-    && curl -L -o azcopy.tar.gz https://aka.ms/downloadazcopy-v10-linux \
+    && curl -L -o azcopy.tar.gz https://azcopyvnext.azureedge.net/release20190517/azcopy_linux_amd64_10.1.2.tar.gz \
     && tar -xzf azcopy.tar.gz && rm -f azcopy.tar.gz \
     && cp ./azcopy_linux_amd64_10.1.2/azcopy /usr/local/bin/. \
     && chmod +x /usr/local/bin/azcopy \
