@@ -1,7 +1,7 @@
 FROM debian:stretch-slim
 
-ENV RELEASE_STAMP=20191010
-ENV RELEASE_VERSION=10.3.0
+ENV RELEASE_STAMP=20191017
+ENV RELEASE_VERSION=10.3.1
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
