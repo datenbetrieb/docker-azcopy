@@ -7,11 +7,11 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 RUN set -ex \
-    && curl -L -o azcopy.tar.gz https://azcopyvnext.azureedge.net/release20190703/azcopy_linux_amd64_10.2.1.tar.gz \
+    && curl -L -o azcopy.tar.gz https://azcopyvnext.azureedge.net/release${RELEASE_STAMP}/azcopy_linux_amd64_${RELEASE_VERSION}.tar.gz \
     && tar -xzf azcopy.tar.gz && rm -f azcopy.tar.gz \
-    && cp ./azcopy_linux_amd64_10.2.1/azcopy /usr/local/bin/. \
+    && cp ./azcopy_linux_amd64_*/azcopy /usr/local/bin/. \
     && chmod +x /usr/local/bin/azcopy \
-    && rm -rf azcopy_linux_amd64_10.2.1
+    && rm -rf azcopy_linux_amd64_*
 
 ENTRYPOINT ["azcopy"]
 CMD ["--version"]
