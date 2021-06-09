@@ -1,8 +1,8 @@
 FROM debian:stretch-slim
 
 # curl -v https://aka.ms/downloadazcopy-v10-linux
-ENV RELEASE_STAMP=20200410
-ENV RELEASE_VERSION=10.4.0
+ENV RELEASE_STAMP=20210415
+ENV RELEASE_VERSION=10.10.0
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
