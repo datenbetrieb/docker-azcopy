@@ -1,8 +1,8 @@
-FROM debian:stretch-slim
+FROM debian:bookworm-slim
 
 # curl -v https://aka.ms/downloadazcopy-v10-linux
-ENV RELEASE_STAMP=20210415
-ENV RELEASE_VERSION=10.10.0
+ENV RELEASE_STAMP=20240326
+ENV RELEASE_VERSION=10.24.0
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -11,7 +11,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 RUN set -ex \
-    && curl -L -o azcopy.tar.gz https://azcopyvnext.azureedge.net/release${RELEASE_STAMP}/azcopy_linux_amd64_${RELEASE_VERSION}.tar.gz \
+    && curl -L -o azcopy.tar.gz https://azcopyvnext.azureedge.net/releases/release-${RELEASE_VERSION}-${RELEASE_STAMP}/azcopy_linux_amd64_${RELEASE_VERSION}.tar.gz \
     && tar -xzf azcopy.tar.gz && rm -f azcopy.tar.gz \
     && cp ./azcopy_linux_amd64_*/azcopy /usr/local/bin/. \
     && chmod +x /usr/local/bin/azcopy \
